@@ -17,7 +17,10 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 4);
+      const shouldUseGlass = window.scrollY > 4;
+      setIsScrolled((current) =>
+        current === shouldUseGlass ? current : shouldUseGlass,
+      );
     };
 
     handleScroll();

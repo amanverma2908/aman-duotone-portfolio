@@ -4,9 +4,19 @@ import gsap from "gsap";
 export function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorLabelRef = useRef<HTMLDivElement>(null);
+  const [isEnabled] = useState(() => {
+    if (typeof window === "undefined") return false;
+
+    return (
+      window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  });
   const [isHoveringGallery, setIsHoveringGallery] = useState(false);
 
   useEffect(() => {
+    if (!isEnabled) return;
+
     document.body.classList.add("hide-cursor");
     gsap.set(cursorRef.current, { opacity: 1 });
 
@@ -183,7 +193,11 @@ export function CustomCursor() {
       window.removeEventListener("mouseup", onMouseUp);
       document.body.classList.remove("hide-cursor");
     };
-  }, []);
+  }, [isEnabled]);
+
+  if (!isEnabled) {
+    return null;
+  }
 
   return (
     <div

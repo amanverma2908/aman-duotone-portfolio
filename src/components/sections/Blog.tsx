@@ -25,9 +25,19 @@ export function Blog() {
   const mediumUsername = '@midnightcoder'; 
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${mediumUsername}`);
+        const response = await fetch(
+          `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${mediumUsername}`,
+          { signal: controller.signal },
+        );
+
+        if (!response.ok) {
+          throw new Error('Unable to fetch Medium posts.');
+        }
+
         const data = await response.json();
         
         if (data.status === 'ok' && data.items && data.items.length > 0) {
@@ -58,13 +68,18 @@ export function Blog() {
           setPosts([]);
         }
       } catch (err) {
+        if (controller.signal.aborted) return;
         setError('Error fetching posts.');
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
       }
     };
 
     fetchPosts();
+
+    return () => controller.abort();
   }, [mediumUsername]);
 
   useGSAP(
@@ -139,6 +154,9 @@ export function Blog() {
                       <img 
                         src={post.thumbnail} 
                         alt={post.title}
+                        loading="lazy"
+                        decoding="async"
+                        referrerPolicy="no-referrer"
                         className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-ink/10 dark:bg-paper/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

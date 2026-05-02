@@ -13,6 +13,8 @@ const PROJECTS = [
     title: "Codebase IDE",
     category: "Full Stack / Online IDE",
     image: "/images/project1-main.png",
+    imageWidth: 1536,
+    imageHeight: 1024,
     description:
       "An online coding platform built around the Piston API, with a Monaco-powered editor, language selection, code execution flow, and a full-stack JavaScript architecture for running code from the browser.",
     tech: ["React", "Monaco Editor", "Express", "MongoDB", "Piston API"],
@@ -24,6 +26,8 @@ const PROJECTS = [
     title: "Tic Tac Toe",
     category: "Frontend / Game",
     image: "/images/project2-main.png",
+    imageWidth: 1672,
+    imageHeight: 941,
     description:
       "A classic two-player Tic Tac Toe game built with HTML, CSS, and JavaScript. The project recreates the 3x3 grid flow with turn-based X/O moves, win detection across rows, columns, and diagonals, and a clean browser-first interface.",
     tech: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
@@ -157,6 +161,10 @@ export function Gallery() {
                   <img
                     src={project.image}
                     alt={project.title}
+                    width={project.imageWidth}
+                    height={project.imageHeight}
+                    loading="lazy"
+                    decoding="async"
                     className="parallax-image absolute inset-0 w-full h-[130%] top-[-15%] object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.15]"
                     referrerPolicy="no-referrer"
                   />
@@ -219,6 +227,10 @@ export function Gallery() {
                     <img
                       src={selectedProject.image}
                       alt={selectedProject.title}
+                      width={selectedProject.imageWidth}
+                      height={selectedProject.imageHeight}
+                      loading="eager"
+                      decoding="async"
                       className="h-full w-full object-cover grayscale"
                       referrerPolicy="no-referrer"
                     />

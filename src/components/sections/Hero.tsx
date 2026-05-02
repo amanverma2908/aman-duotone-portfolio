@@ -96,6 +96,11 @@ export function Hero() {
             <img
               src="/aman-portrait.png"
               alt="Aman Verma - Developer Portrait"
+              width={2000}
+              height={2678}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               className="h-full w-full object-cover grayscale contrast-110 brightness-110 opacity-90 transition-all duration-1000"
               onError={(e) => {
                 e.currentTarget.style.display = "none";
@@ -130,14 +135,14 @@ export function Hero() {
               Personal Portfolio / 2026
             </span>
             <div className="overflow-hidden pb-2 md:pb-4">
-              <h3 className="hero-text text-4xl font-display font-black uppercase leading-none tracking-normal text-ink dark:text-paper sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl">
+              <h1 className="hero-text text-4xl font-display font-black uppercase leading-none tracking-normal text-ink dark:text-paper sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl">
                 Aman Verma
-              </h3>
+              </h1>
             </div>
             <div className="overflow-hidden pb-2 md:pb-4">
-              <h3 className="hero-text text-5xl font-accent leading-none text-transparent opacity-90 [-webkit-text-stroke:1px_var(--color-ink)] dark:[-webkit-text-stroke:1px_var(--color-paper)] sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl">
+              <h2 className="hero-text text-5xl font-accent leading-none text-transparent opacity-90 [-webkit-text-stroke:1px_var(--color-ink)] dark:[-webkit-text-stroke:1px_var(--color-paper)] sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl">
                 Developer
-              </h3>
+              </h2>
             </div>
           </div>
 

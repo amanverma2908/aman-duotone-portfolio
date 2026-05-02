@@ -36,7 +36,7 @@ export function Footer() {
     };
 
     updateTime();
-    const interval = setInterval(updateTime, 1000);
+    const interval = setInterval(updateTime, 30000);
     return () => clearInterval(interval);
   }, []);
 
