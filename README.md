@@ -1,6 +1,6 @@
 # Aman Verma Portfolio
 
-A minimalist duotone portfolio built with React, Vite, Tailwind CSS, GSAP, and Motion. It presents a full-stack developer profile through animated sections, a project gallery, Medium-powered blog cards, theme switching, custom cursor interactions, and contact/social links.
+A minimalist duotone portfolio built with React, Vite, Tailwind CSS, GSAP, and Motion. It presents a full-stack developer profile through animated sections, a project gallery, Medium-powered blog card[...]
 
 ## Features
 
@@ -71,34 +71,34 @@ npm run lint
 
 ```text
 src/
-  App.tsx
-  main.tsx
-  index.css
-  components/
-    layout/
-      Header.tsx
-      Footer.tsx
-    sections/
-      Hero.tsx
-      About.tsx
-      Skills.tsx
-      Experience.tsx
-      Gallery.tsx
-      Blog.tsx
-      Contact.tsx
-    ui/
-      CustomCursor.tsx
-      ScrollToTop.tsx
-  context/
-    ThemeContext.tsx
-  lib/
-    utils.ts
+├── App.tsx
+├── main.tsx
+├── index.css
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx
+│   │   └── Footer.tsx
+│   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Skills.tsx
+│   │   ├── Experience.tsx
+│   │   ├── Gallery.tsx
+│   │   ├── Blog.tsx
+│   │   └── Contact.tsx
+│   └── ui/
+│       ├── CustomCursor.tsx
+│       └── ScrollToTop.tsx
+├── context/
+│   └── ThemeContext.tsx
+└── lib/
+    └── utils.ts
 public/
-  aman-portrait.png
-  images/
-    project1-main.png
-    project1-info.png
-    project2-main.png
+├── aman-portrait.png
+└── images/
+    ├── project1-main.png
+    ├── project1-info.png
+    └── project2-main.png
 ```
 
 ## Customization
